@@ -15,7 +15,7 @@ const UserProfile = () => {
     const getProfile = async () => {
       try {
         const { data } = await axios.get(
-          `/api/user/${id}/`,
+          `https://main--elegant-rolypoly-9693b2.netlify.app/api/user/${id}/`,
 
         )
         setProfile(data)

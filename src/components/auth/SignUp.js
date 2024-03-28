@@ -39,7 +39,7 @@ const SignUp = () => {
   const handleSubmit = async (event) => {
     event.preventDefault()
     try {
-      const { data } = await axios.post('/api/register', formData)
+      const { data } = await axios.post('https://main--elegant-rolypoly-9693b2.netlify.app/register', formData)
       setTokenToLocalStorage(data.token)
       history.push('/')
     } catch (error) {

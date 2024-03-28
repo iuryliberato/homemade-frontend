@@ -37,10 +37,10 @@ const ProfileEdit = () => {
     event.preventDefault()
     try {
       await axios.put(
-        '/api/profile/edit', 
+        'https://main--elegant-rolypoly-9693b2.netlify.app/api/profile/edit',
         formData,
         { headers: { Authorization: `Bearer ${getTokenFromLocalStorage()}` } }
-        )
+      )
       history.push('/profile')
     } catch (error) {
       console.log('error ->', error.response)
@@ -60,33 +60,33 @@ const ProfileEdit = () => {
 
   return (
     <>
-    <Link to="/profile"><button>Back</button></Link>
-    <div className="signUpPage page">
+      <Link to="/profile"><button>Back</button></Link>
+      <div className="signUpPage page">
 
-      <div className="form-header sign-up-form-header">
-        <h2>Customise profile</h2>
+        <div className="form-header sign-up-form-header">
+          <h2>Customise profile</h2>
+        </div>
+
+        <div className="form-container sign-up-form-container">
+
+          <form onSubmit={handleSubmit}>
+
+            <div className="formfield">
+              <label htmlFor="userName" >Change Username</label>
+              <input onInput={handleChange} type="text" id="userName" name="username" value={formData.username} placeholder="Your username goes here" />
+              {errors.username && <p className="error">Please enter a username</p>}
+            </div>
+
+            <div className="formfield">
+              <ImageUpload name="profileImage" handleImageUrl={handleImageUrl} />
+            </div>
+
+            <button className="form-button">Confirm</button>
+
+          </form>
+        </div>
+
       </div>
-
-      <div className="form-container sign-up-form-container">
-
-        <form onSubmit={handleSubmit}>
-
-          <div className="formfield">
-            <label htmlFor="userName" >Change Username</label>
-            <input onInput={handleChange} type="text" id="userName" name="username" value={formData.username} placeholder="Your username goes here" />
-            {errors.username && <p className="error">Please enter a username</p>}
-          </div>
-
-          <div className="formfield">
-            <ImageUpload name="profileImage" handleImageUrl={handleImageUrl} />
-          </div>
-
-          <button className="form-button">Confirm</button>
-
-        </form>
-      </div>
-
-    </div>
     </>
   )
 }

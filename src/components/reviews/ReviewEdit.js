@@ -9,13 +9,13 @@ const ReviewEdit = () => {
   const { id } = useParams()
   const history = useHistory()
 
-  const [ formData, setFormData ] = useState({
+  const [formData, setFormData] = useState({
     // text: '',
     // rating: 1,
     // image: '',
   })
 
-  const [ errors, setErrors ] = useState({
+  const [errors, setErrors] = useState({
     text: { message: '' }
   })
 
@@ -33,7 +33,7 @@ const ReviewEdit = () => {
     event.preventDefault()
     try {
       await axios.put(
-        `/api/recipes/${id}/review/${id}`,
+        `https://main--elegant-rolypoly-9693b2.netlify.app/api/recipes/${id}/review/${id}`,
         formData,
         { headers: { Authorization: `Bearer ${getTokenFromLocalStorage()}` } }
       )
@@ -49,42 +49,42 @@ const ReviewEdit = () => {
     } catch (error) {
       if (error.response.data.errors) setErrors(error.response.data.errors)
     }
-    
+
   }
 
   return (
-<div className="signUpPage">
+    <div className="signUpPage">
 
-<div className="form-header sign-up-form-header">
-  <h2>Add review</h2> 
-  
-  </div>
+      <div className="form-header sign-up-form-header">
+        <h2>Add review</h2>
 
-  <div className="form-container sign-up-form-container">
+      </div>
 
-  <form onSubmit={handleSubmit}>
+      <div className="form-container sign-up-form-container">
 
-    <div className="formfield">
-      <p>Review</p>
-      <textarea onInput={handleChange} name="text" type="text" placeholder="enter review here"  maxLength='400' value={formData.text}/>
-      {errors.text && <p className="error">{errors.text.message}</p>}
+        <form onSubmit={handleSubmit}>
+
+          <div className="formfield">
+            <p>Review</p>
+            <textarea onInput={handleChange} name="text" type="text" placeholder="enter review here" maxLength='400' value={formData.text} />
+            {errors.text && <p className="error">{errors.text.message}</p>}
+          </div>
+
+          <div className="formfield">
+            <p>Rating</p>
+            <input onInput={handleChange} name="rating" type="number" min='1' max='5' value={formData.rating} />
+          </div>
+
+          <div className="formfield">
+            <ImageUpload value={formData.image} name="image" handleImageUrl={handleImageUrl} />
+          </div>
+
+          <button className="form-button">Submit</button>
+
+        </form>
+      </div>
+
     </div>
-
-    <div className="formfield">
-      <p>Rating</p>
-      <input onInput={handleChange} name="rating" type="number" min='1' max='5'value={formData.rating}/>
-    </div>
-
-    <div className="formfield">
-    <ImageUpload value={formData.image} name="image" handleImageUrl={handleImageUrl}/>
-    </div>
-
-    <button className="form-button">Submit</button>
-
-  </form>    
-  </div>
-
-</div>
   )
 }
 

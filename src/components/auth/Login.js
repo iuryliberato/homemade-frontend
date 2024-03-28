@@ -34,7 +34,7 @@ const Login = () => {
   const handleSubmit = async (event) => {
     event.preventDefault()
     try {
-      const { data } = await axios.post('/api/login', formData)
+      const { data } = await axios.post('https://main--elegant-rolypoly-9693b2.netlify.app/api/login', formData)
       setTokenToLocalStorage(data.token)
       history.push('/')
     } catch (error) {

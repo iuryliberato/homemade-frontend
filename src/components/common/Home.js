@@ -13,7 +13,7 @@ const Home = () => {
 
   useEffect(() => {
     const getData = async () => {
-      const { data } = await axios.get('/api/recipes')
+      const { data } = await axios.get('https://main--elegant-rolypoly-9693b2.netlify.app/api/recipes')
       console.log(data)
       setRecipes(data)
     }

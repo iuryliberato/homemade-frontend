@@ -55,7 +55,7 @@ const RecipeNew = () => {
     event.preventDefault()
     try {
       await axios.post(
-        '/api/recipes',
+        'https://main--elegant-rolypoly-9693b2.netlify.app/api/recipes',
         formData,
         { headers: { Authorization: `Bearer ${getTokenFromLocalStorage()}` } }
       )

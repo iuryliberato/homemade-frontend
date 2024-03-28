@@ -14,7 +14,7 @@ const Profile = () => {
     const getProfile = async () => {
       try {
         const { data } = await axios.get(
-          `/api/profile/`,
+          `https://main--elegant-rolypoly-9693b2.netlify.app/api/profile/`,
           { headers: { Authorization: `Bearer ${getTokenFromLocalStorage()}` } }
         )
         setProfile(data)
@@ -29,7 +29,7 @@ const Profile = () => {
   const handleDeleteRecipe = async (id) => {
     try {
       await axios.delete(
-        `/api/recipes/${id}`, { headers: { Authorization: `Bearer ${getTokenFromLocalStorage()}` } }
+        `https://main--elegant-rolypoly-9693b2.netlify.app/api/recipes/${id}`, { headers: { Authorization: `Bearer ${getTokenFromLocalStorage()}` } }
       )
       window.location.reload()
     } catch (error) {
@@ -43,9 +43,9 @@ const Profile = () => {
         <div className="page">
           <div className="profileHeader">
             {profile.profileImage &&
-            <>
-              <img id="profileImage" src={profile.profileImage} alt="profile" />
-              <Link to={`/profile/edit/`}><p className="editButton">✎</p></Link>
+              <>
+                <img id="profileImage" src={profile.profileImage} alt="profile" />
+                <Link to={`/profile/edit/`}><p className="editButton">✎</p></Link>
               </>
             }
             <h1>Welcome, {profile.username}</h1>

@@ -15,12 +15,12 @@ const SingleRecipe = () => {
 
   const history = useHistory()
 
-  
+
   useEffect(() => {
 
     const getData = async () => {
       try {
-        const { data } = await axios.get('/api/recipes')
+        const { data } = await axios.get('https://main--elegant-rolypoly-9693b2.netlify.app/api/recipes')
         setRecipes(data)
 
       } catch (error) {
@@ -34,7 +34,7 @@ const SingleRecipe = () => {
   useEffect(() => {
     const getRecipe = async () => {
       try {
-        const { data } = await axios.get(`/api/recipes/${id}`)
+        const { data } = await axios.get(`https://main--elegant-rolypoly-9693b2.netlify.app/recipes/${id}`)
         setRecipe(data)
         console.log(data)
       } catch (error) {
@@ -53,7 +53,7 @@ const SingleRecipe = () => {
   const handleDeleteRecipe = async () => {
     try {
       await axios.delete(
-        `/api/recipes/${id}`, { headers: { Authorization: `Bearer ${getTokenFromLocalStorage()}` } }
+        `https://main--elegant-rolypoly-9693b2.netlify.app/api/recipes/${id}`, { headers: { Authorization: `Bearer ${getTokenFromLocalStorage()}` } }
       )
       history.push('/searchrecipe')
     } catch (error) {
@@ -147,17 +147,17 @@ const SingleRecipe = () => {
                 {recipe.reviews.map((review, n) => {
                   return <li key={n}>
                     <Link to={`/user/${review.owner._id}`}>
-                    <div className="reviewHeader">
-                      {review.owner.profileImage &&
-                        <img src={review.owner.profileImage} className="profileImage" alt="profilePhoto" />
+                      <div className="reviewHeader">
+                        {review.owner.profileImage &&
+                          <img src={review.owner.profileImage} className="profileImage" alt="profilePhoto" />
+                        }
+                        <p><strong>By {review.owner.username}</strong></p>
+                      </div>
+                      <Stars rating={review.rating} />
+                      <p>{review.text}</p>
+                      {review.image &&
+                        <img src={review.image} className='reviewImage' alt="users attempt" />
                       }
-                      <p><strong>By {review.owner.username}</strong></p>
-                    </div>
-                    <Stars rating={review.rating} />
-                    <p>{review.text}</p>
-                    {review.image &&
-                      <img src={review.image} className='reviewImage' alt="users attempt" />
-                    }
                     </Link>
                   </li>
                 })}

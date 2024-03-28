@@ -37,7 +37,7 @@ const ReviewNew = () => {
     event.preventDefault()
     try {
       await axios.post(
-        `/api/recipes/${id}/review`,
+        `https://main--elegant-rolypoly-9693b2.netlify.app/recipes/${id}/review`,
         formData,
         { headers: { Authorization: `Bearer ${getTokenFromLocalStorage()}` } }
       )

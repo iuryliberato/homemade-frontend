@@ -22,7 +22,7 @@ const SearchRecipe = () => {
 
     const getData = async () => {
       try {
-        const { data } = await axios.get('/api/recipes')
+        const { data } = await axios.get('https://main--elegant-rolypoly-9693b2.netlify.app/api/recipes')
         setRecipes(data)
 
 
@@ -127,28 +127,28 @@ const SearchRecipe = () => {
         </div>
 
 
-        
-              <div className="cards" >
-                {filteredItems.sort((a, b) => a.name.toUpperCase() < b.name.toUpperCase() ? -1 : 1).slice(0, pageNumber * itemsPerPage).map(recipe => {
-                  return <Link key={recipe._id} className='recipeCard' to={`/SearchRecipe/${recipe._id}`}>
-                    <img className="searchIMG" src={recipe.image} alt="recipe" />
-                    <div className="cardDetails">
-                      <div className="title">
-                        <h4>{recipe.name}</h4>
-                      </div>
-                      <Stars rating={recipe.averageRating} />
-                      <p>Duration: {recipe.time} minutes</p>
-                      {recipe.owner && <p>Created by: {recipe.owner.username}</p>}
-                    </div>
-                  </Link>
-                })}
+
+        <div className="cards" >
+          {filteredItems.sort((a, b) => a.name.toUpperCase() < b.name.toUpperCase() ? -1 : 1).slice(0, pageNumber * itemsPerPage).map(recipe => {
+            return <Link key={recipe._id} className='recipeCard' to={`/SearchRecipe/${recipe._id}`}>
+              <img className="searchIMG" src={recipe.image} alt="recipe" />
+              <div className="cardDetails">
+                <div className="title">
+                  <h4>{recipe.name}</h4>
+                </div>
+                <Stars rating={recipe.averageRating} />
+                <p>Duration: {recipe.time} minutes</p>
+                {recipe.owner && <p>Created by: {recipe.owner.username}</p>}
               </div>
-              
-              <div className="loadBackground">
-                {
-                  pageNumber < totalPages && <button className="pageNumber" onClick={() => setPageNumber(pageNumber + 1)}>Load more...</button>
-                }
-              </div>
+            </Link>
+          })}
+        </div>
+
+        <div className="loadBackground">
+          {
+            pageNumber < totalPages && <button className="pageNumber" onClick={() => setPageNumber(pageNumber + 1)}>Load more...</button>
+          }
+        </div>
       </div>
     </div>
   )
