@@ -1,0 +1,93 @@
+
+@import './forms.scss';
+@import './nav.scss';
+@import './home.scss';
+@import './searchRecipe.scss';
+@import './footer.scss';
+@import './profile.scss';
+@import './signup.scss';
+@import './singleRecipe';
+
+//Body//
+$background: #f8bfb4;
+$headerHeight: 80px;
+$footerHeight: 150px;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  min-height: 100vh;
+}
+body, input {
+  font-family: 'Nunito', sans-serif;
+  letter-spacing: 0.5px;
+  background-color: rgb(245, 245, 245);
+}
+.page {
+  min-height: calc(100vh - $headerHeight - $footerHeight ); 
+  padding-bottom: 60px;
+}
+
+
+//Tags //
+ul {
+  display: flex;
+  list-style-type: none;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+  
+}
+input {
+  cursor: text;
+}
+h2 {
+  font-size: 4vh;
+  margin-bottom: 2vh;
+}
+h3 {
+  font-size: 1.5vh;
+}
+h4 {
+  font-size: 28px;
+  text-align: center;
+  margin: 5px 10px;
+  text-transform: capitalize;
+}
+input, button {
+  height: 40px;
+  width: 180px;
+  border: none;
+  padding-left: 8px;
+}
+
+
+
+//Computer full screen //
+@media screen and (min-width: 480px) {
+  .cards {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  }
+  .recipeCard {
+    width: calc(25% - 20px);
+    margin: 20px 10px;
+  }
+  .selectFilter{
+    font-size: 20px;
+    display: flex;
+    flex-direction: row;
+  }
+  .searchSelect{
+    width: 20px;
+  } 
+  .cards {
+  padding: 0;
+  }
+  }
+
+ 

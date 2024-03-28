@@ -1,0 +1,206 @@
+.singleRecipePage {
+
+hr {
+  border-top: 3px solid black;
+  margin: 0 10px;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  padding: 50px;
+  // margin-top: 50px;
+
+
+  .mainInfo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+
+    p {
+      margin: 7px;
+    }
+
+    ul {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 20px;
+      text-transform: capitalize;
+
+      li {
+        margin-bottom: 10px;
+        padding: 0;
+        font-size: 15px;
+      }
+    }
+  }
+}
+
+.method {
+  margin: 30px 0px 50px 20px;
+
+  li {
+    margin: 10px 30px;
+  }
+}
+
+.review,
+.related,
+.navLink {
+  margin: 20px 30px;
+
+  ul {
+    margin: 20px 0;
+    display: flex;
+    flex-direction: column;
+
+    li {
+      margin-bottom: 50px;
+    }
+  }
+}
+
+.recipe-name {
+  text-transform: uppercase;
+  margin-bottom: 50px;
+  text-align: center;
+  font-size: 3em;
+}
+
+.singleh3 {
+  text-transform: uppercase;
+  margin: 50px 10px 30px 10px;
+}
+
+.mainImage {
+  width: 700px;
+  height: 700px;
+  overflow: hidden;
+}
+
+.mainImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.imageInfo {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.method, .ingredients {
+  font-weight: lighter;
+}
+
+}
+
+.recipeNav {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+
+  .navButtons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+  }
+}
+
+
+.reviewImage {
+  max-width: 120px;
+  max-height: 120px;
+}
+
+.profileImage{
+  width: 40px;
+  height: 40px;
+}
+
+.review{
+  ul{
+    li{
+      background-color: white;
+      padding: 20px;
+      box-shadow: 2px 7px 10px 0px rgb(204 204 204 / 60%);
+      p{
+        margin: 10px 0 20px 0;
+        
+        strong{
+          padding-left: 10px;
+        }
+      }
+    }
+  }
+  .reviewHeader{
+    display: flex;
+  }
+  .stars{
+    padding: 10px 0;
+  }
+}
+.profileImg{
+  width: 90px;
+  height: 90px;
+  border-radius: 100px;
+}
+
+.owner-recipe {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  font-size: 18px;
+  margin: 10px 0 10px 20px;
+  color: grey;
+}
+.owner-profile {
+  display: flex;
+  margin: 50px 30px 20px;
+  align-items: columns;
+}
+
+@media screen and (max-width: 480px) {
+  .main{
+    .recipe-name {
+      font-size: 30px;
+    }
+  }
+  
+
+  .method{
+    li {
+      text-align: justify;
+    }
+  }
+
+  .imageInfo{
+    flex-direction: column;
+
+    .mainImage{
+      margin-bottom: 30px;
+      width: 300px;
+      height: 300px;
+    }
+  }
+
+  .navButtons {
+    margin-top: 10px;
+    justify-content: center;
+
+    .edit{
+      display: flex;
+  
+    }
+    button{
+      width: 100px;
+      margin: 10px;
+    }
+  }
+
+  
+
+}
